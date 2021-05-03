@@ -1,0 +1,208 @@
+* {
+    margin: 0;
+    padding: 0;
+    /* Faz com que o conjunto de conteudo do elemento, border e espaçamento esteja dentro do tamanho de largura e altura declarados pelas propriedades width e height */
+    box-sizing: border-box;
+}
+
+:root {
+    /* Aqui são como são criadas váriaveis que 
+    podem ser usadas no decorrer do código CSS */
+    --bgGray: #9c9c9c;
+    --gray: #525252;
+    --orange: #ee7203;
+    --greenlight: #46b67b;
+    --blue: #1a6aa0;
+    --purple: #3f1f71;
+    --purpleLight: #7B3DE0;
+    --gradientBgBlue: linear-gradient(180deg, rgba(26, 106, 160, 1) 20%, #0098ff94 80%);
+    --gradientBgPurple: linear-gradient(180deg, #6c21e1 50%, rgb(75 0 131) 100%);
+}
+
+body {
+    /* Atribuir Cor de fundo e Font ( Talvez sitar o uso do Fonts. Google) */
+    background-color: var(--bgGray);
+    font-family: sans-serif;
+}
+
+body.dark {
+    background-color: var(--gray);
+}
+
+body.dark nav.menu {
+    background-color: var(--gray);
+}
+
+body.dark nav.menu .labelCheck {
+    background-color: rgb(1, 21, 134);
+}
+
+body.dark section.bgHeader {
+    /* Altura como 100% da viewport, da tela que a págiane stpá sendo renderizada */
+    height: 100vh;
+    /* imagem de fundo */
+    background: url(../img/headerdark.jpg);
+    /* Cobre todo o elemento com a imagem de fundo */
+    background-size: cover;
+    /* Posiciona ao centro a imagem de fundo  */
+    background-position: center;
+}
+
+body.dark section header div {
+    color: rgb(34, 34, 34);
+    text-shadow: 0px 0px 10px #FFF;
+}
+
+body.dark section header a {
+    color: #000;
+    border: 2px solid #000;
+}
+
+.container {
+    /* classe para fazer com que o elemento tenha 75% do elemento pai e um espaçamento vertical 0 e horizontal automatico ficando centralizado */
+    width: 75%;
+    margin: 0 auto;
+}
+
+nav.menu {
+    /* Altura do elemento mais cor de fundo */
+    height: 80px;
+    background-color: var(--greenlight);
+    transition: .5s linear;
+}
+
+nav.menu div {
+    /* 100% da altura do elemento pai,l no caso o "nav.menu" com 80px,cor da fonte como branco e o tipo de renderização como flexivel. */
+    height: 100%;
+    color: #fff;
+    display: flex;
+    /* As seguintes propriedades são disponibilizadas ao usar o "display flex".
+    Alinhando os elementos ao centro verticalmente e colocando eles em cada canto do elemento pai horizontalmente */
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav.menu div a {
+    /* tira o sublinhado do elemento em questao, o link <a> e cor da fonte branca   */
+    text-decoration: none;
+    color: #FFF;
+}
+
+#checkedTheme {
+    opacity: 0;
+    position: absolute;
+}
+
+nav.menu .labelCheck {
+    height: 26px;
+    width: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid var(--gray);
+    border-radius: 50px;
+    background-color: rgb(79, 213, 218);
+    position: relative;
+}
+
+.labelCheck .ball {
+    height: 24px;
+    width: 24px;
+    background-color: var(--bgGray);
+    border-radius: 12px;
+    position: absolute;
+    transition: transform 0.2s linear;
+    /* top: 2px;
+    left: 2px; */
+}
+
+#checkedTheme:checked+label .ball {
+    transform: translateX(28px);
+    background-color: var(--greenlight);
+}
+
+.labelCheck .moon {
+    margin-left: 1px;
+}
+
+section.bgHeader {
+    /* Altura como 100% da viewport, da tela que a págiane stpá sendo renderizada */
+    height: 100vh;
+    /* imagem de fundo */
+    background: url(../img/header.png);
+    /* Cobre todo o elemento com a imagem de fundo */
+    background-size: cover;
+    /* Posiciona ao centro a imagem de fundo  */
+    background-position: center;
+    transition: .5s linear;
+}
+
+section header {
+    width: 720px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+section header div {
+    width: 40rem;
+    margin: 1.5rem 0;
+    color: var(--gray);
+}
+
+section header h2 {
+    font-size: 42px;
+}
+
+section header p {
+    font-size: 20px;
+    font-weight: 100;
+}
+
+section header a {
+    text-decoration: none;
+    color: var(--gray);
+    border: 2px solid var(--gray);
+    padding: 1.2rem 2.5rem;
+    margin-right: 1rem;
+    font-weight: 700;
+}
+
+footer {
+    background-color: var(--gray);
+    position: relative;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    text-align: center;
+    padding: 2rem 0;
+    font-size: 12px;
+}
+
+@media screen and (max-width: 920px) {
+    .container {
+        width: 92%;
+    }
+    section header div {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    nav div p {
+        display: none;
+    }
+    div.btnApps {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .btnApps a {
+        margin-bottom: 10px;
+        margin-right: 0;
+        width: 65%;
+        text-align: center;
+    }
+}
